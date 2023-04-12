@@ -8,7 +8,7 @@ class About extends Component {
     render() { 
         return (
             
-            <h1>Atul , Boby,Viswnath good Morning</h1>
+            <h1>Atul , mahesh good Morning</h1>
          );
     }
 }
