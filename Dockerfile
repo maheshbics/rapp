@@ -1,19 +1,8 @@
-FROM node:14
+# Use the official Nginx base image
+FROM nginx:latest
 
-# Setting working directory. All the path will be relative to WORKDIR
-WORKDIR /usr/src/app
+# Expose the HTTP port
+EXPOSE 80
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
-
-RUN npm install
-# If you are building your code for production
-RUN npm ci --only=production
-
-# Bundle app source
-COPY . .
-
-EXPOSE 3000
-CMD [ "node", "index.js" ]
+# Set the command to start Nginx
+CMD ["nginx", "-g", "daemon off;"]
