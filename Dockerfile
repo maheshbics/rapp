@@ -36,6 +36,3 @@ EXPOSE 3000
 # Specify the command to run when the container starts
 CMD [ "npm", "start" ]
 
-
-FROM nginx:alpine
-COPY --from=node /app/build/ /usr/share/nginx/html
