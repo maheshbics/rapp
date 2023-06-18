@@ -5,8 +5,8 @@ FROM ubuntu:latest
 WORKDIR /app
 
 # Update package lists and install necessary packages
-RUN apt-get update && \
-    apt-get install -y \
+RUN apt-get install -y && \
+    apt-get update -y \
         apt-get install git \
         # Add any additional packages you need
     && rm -rf /var/lib/apt/lists/*
