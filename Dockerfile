@@ -2,7 +2,6 @@
 FROM nginx:latest
 
 # Copy custom configuration files to Nginx
-COPY nginx.conf /etc/nginx/nginx.conf
 COPY default.conf /etc/nginx/conf.d/default.conf
 
 # Copy static web content to Nginx default location
