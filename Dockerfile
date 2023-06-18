@@ -1,15 +1,18 @@
-FROM node:14-alpine as node
+# Use the official Ubuntu base image
+FROM ubuntu:latest
 
+# Set the working directory
 WORKDIR /app
 
-COPY package.json ./
+# Update package lists and install necessary packages
+RUN apt-get update && \
+    apt-get install -y \
+        apt-get install git \
+        # Add any additional packages you need
+    && rm -rf /var/lib/apt/lists/*
 
-RUN npm install
+# Copy your application files to the container
+COPY . /app
 
-COPY . .
-
-RUN npm run build
-
-FROM nginx:alpine
-
-COPY --from=node /app/build/ /usr/share/nginx/html
+# Set the entry point or default command to run your application
+CMD ["<command>"]
