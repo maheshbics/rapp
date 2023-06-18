@@ -1,8 +1,15 @@
-FROM node:14-alpine as node
-WORKDIR /app
-COPY package.json ./
-RUN npm install --only=production
-COPY . .
-RUN npm run build
-FROM nginx:alpine
-COPY --from=node /app/build/ /usr/share/nginx/html
+# Use the official Nginx base image
+FROM nginx:latest
+
+# Copy custom configuration files to Nginx
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY default.conf /etc/nginx/conf.d/default.conf
+
+# Copy static web content to Nginx default location
+COPY static-html /usr/share/nginx/html
+
+# Expose the HTTP port
+EXPOSE 80
+
+# Set the command to start Nginx
+CMD ["nginx", "-g", "daemon off;"]
