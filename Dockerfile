@@ -4,15 +4,8 @@ FROM ubuntu:latest
 # Set the working directory
 WORKDIR /app
 
-# Update package lists and install necessary packages
-RUN apt-get install -y && \
-    apt-get update -y \
-        apt-get install git \
-        # Add any additional packages you need
-    && rm -rf /var/lib/apt/lists/*
+# Copy a sample file into the container
+COPY sample.txt .
 
-# Copy your application files to the container
-COPY . /app
-
-# Set the entry point or default command to run your application
-CMD ["<command>"]
+# Set the default command to display the contents of the sample file
+CMD ["cat", "sample.txt"]
