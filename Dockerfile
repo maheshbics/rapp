@@ -1,7 +1,8 @@
-# Use the official Ubuntu base image
-FROM ubuntu:latest
-
-# Set the working directory
+FROM node:14-alpine as node
 WORKDIR /app
-
-RUN apt-get update -y
+COPY package.json ./
+RUN npm install --only=production
+COPY . .
+RUN npm run build
+FROM nginx:alpine
+COPY --from=node /app/build/ /usr/share/nginx/html
