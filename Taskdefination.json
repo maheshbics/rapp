@@ -5,6 +5,7 @@
             "name": "React_container",
             "image": "947014520794.dkr.ecr.ap-south-1.amazonaws.com/react-material-dashboard:latest",
             "cpu": 0,
+            "memory": 512, // Specify the memory value here (in MiB)
             "portMappings": [
                 {
                     "containerPort": 80,
