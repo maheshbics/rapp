@@ -8,7 +8,7 @@
 
             "name": "React_container",
 
-            "image": "966874676050.dkr.ecr.us-west-2.amazonaws.com/react-material-dashboard:latest",
+            "image": "947014520794.dkr.ecr.ap-south-1.amazonaws.com/react-material-dashboard:latest",
 
             "cpu": 0,
 
@@ -60,10 +60,7 @@
 
     ],
 
-    "taskRoleArn": "arn:aws:iam::966874676050:role/ecsTaskExecutionRole",
-
-    "executionRoleArn": "arn:aws:iam::966874676050:role/ecsTaskExecutionRole",
-
+   
     "networkMode": "awsvpc",
 
     "requiresCompatibilities": [
